@@ -11,7 +11,7 @@ import java.time.Duration;
 public class BaseController {
 
     public WebDriver driver;
-    Duration duration;
+    Duration duration = Duration.ofSeconds(10);
     WebDriverWait wait;
 
     public BaseController(WebDriver driver) {

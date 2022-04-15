@@ -3,12 +3,10 @@ package test.OnBoarding;
 import controller.Homepage.HomepageController;
 import controller.OnBoarding.RegisterController;
 import jdk.jfr.Description;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import test.BaseTest;
 
 import java.util.Random;
-import java.util.stream.IntStream;
 
 public class Register extends BaseTest {
 
@@ -24,19 +22,13 @@ public class Register extends BaseTest {
     }
 
     @Test(priority = 1)
-    @Parameters({"email", "pass"})
     @Description("Success Register an Account")
-    public void successRegisterAccount(String email, String pass) {
+    public void successRegisterAccount() {
         registerController = new RegisterController(driver);
-        IntStream number = rand.ints(100,1000);
-        if (email == "") {
-            email = "test-automation" + number + "@gmail.com";
-            pass = "P@ssw0rd" + number;
-        }
         registerController
-                .fillEmail(email)
-                .fillPass(pass)
-                .fillConfirmPass(pass)
+                .fillEmail()
+                .fillPass()
+                .fillConfirmPass()
                 .clickRegister();
     }
 

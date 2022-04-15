@@ -2,8 +2,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="onBoarding">
     <test name="Register">
-        <parameter name="email" value=""></parameter>
-        <parameter name="pass" value=""></parameter>
         <classes>
             <class name="test.OnBoarding.Register"></class>
         </classes>
