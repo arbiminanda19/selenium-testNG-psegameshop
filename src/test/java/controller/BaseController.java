@@ -27,6 +27,14 @@ public class BaseController {
         waitVisibility(by).sendKeys(text);
     }
 
+    public String getText(By by) {
+        return waitVisibility(by).getText();
+    }
+
+    public void clearText(By by) {
+        waitVisibility(by).clear();
+    }
+
     public WebElement waitVisibility(By by) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }

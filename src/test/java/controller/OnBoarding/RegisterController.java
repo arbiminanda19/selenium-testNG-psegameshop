@@ -2,40 +2,40 @@ package controller.OnBoarding;
 
 import controller.BaseController;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import pages.OnBoarding.RegisterPage;
-
-import java.util.Random;
-import java.util.stream.IntStream;
 
 public class RegisterController extends BaseController {
 
-    Random rand = new Random();
     RegisterPage registerPage = new RegisterPage();
-    IntStream number = rand.ints(100,1000);
-    String email = "test-automation" + number + "@gmail.com";
-    String pass = "P@ssw0rd" + number;
 
     public RegisterController(WebDriver driver) {
         super(driver);
     }
 
-    public RegisterController fillEmail() {
+    public RegisterController fillEmail(String email) {
+        clearText(registerPage.getEmailField());
         sendText(registerPage.getEmailField(), email);
         return this;
     }
 
-    public RegisterController fillPass() {
+    public RegisterController fillPass(String pass) {
+        clearText(registerPage.getEmailField());
         sendText(registerPage.getPassField(), pass);
         return this;
     }
 
-    public RegisterController fillConfirmPass() {
+    public RegisterController fillConfirmPass(String pass) {
+        clearText(registerPage.getConfirmPassField());
         sendText(registerPage.getConfirmPassField(), pass);
         return this;
     }
 
-    public RegisterController clickRegister() {
+    public RegisterController clickRegister(String expected) {
         click(registerPage.getRegisterBtn());
+        if (expected == "FAILED"){
+            Assert.assertEquals(getText(registerPage.getWeakPass()), "Very weak - Please enter a stronger password.");
+        }
         return this;
     }
 

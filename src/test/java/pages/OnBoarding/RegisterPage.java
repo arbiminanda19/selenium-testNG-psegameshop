@@ -8,6 +8,7 @@ public class RegisterPage {
     protected By passField = By.id("reg_password");
     protected By confirmPassField = By.id("reg_confirm_password");
     protected By registerBtn = By.xpath("//button[contains(text(),'Register')]");
+    protected By weakPass = By.xpath("//div[contains(text(),'Very weak')]");
 
     public By getEmailField() {
         return emailField;
@@ -25,4 +26,7 @@ public class RegisterPage {
         return registerBtn;
     }
 
+    public By getWeakPass() {
+        return weakPass;
+    }
 }
