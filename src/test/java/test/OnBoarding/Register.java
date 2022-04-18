@@ -16,11 +16,16 @@ public class Register extends BaseTest {
     private HomepageController homepageController;
     private RegisterController registerController;
 
+    Random rand = new Random();
+    IntStream number = rand.ints(100,1000);
+    String email = "test-automation" + number + "@gmail.com";
+    String pass = "P@ssw0rd" + number;
+
     @DataProvider(name = "credentials")
     public Object[][] getData(){
         return new Object[][] {
                 {"test", "test", "FAILED"},
-                {"testing799@goo.co", "Pass5678@hjsd@", "PASSED"}
+                {email, pass, "PASSED"}
         };
     }
 
